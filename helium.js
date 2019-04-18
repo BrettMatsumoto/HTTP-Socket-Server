@@ -1,6 +1,7 @@
 const heliumFile = {
   htmlHelium: `helium.html`,
-  content: `<!DOCTYPE html>
+  content: `
+  <!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -17,4 +18,4 @@ const heliumFile = {
   </html>`,
 }
 
-module.exports.heliumFile = heliumFile;
+module.exports = heliumFile;

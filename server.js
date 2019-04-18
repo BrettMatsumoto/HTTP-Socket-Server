@@ -1,17 +1,12 @@
 'use strict';
 
 const net = require('net');
-const send404 = require('404.js');
-const styles = require('styles.js');
-const helium = require('helium.js');
-const hydrogen = require('hydrogen.js');
-console.log(helium)
+const send404 = require('./404.js');
+const styles = require('./styles.js');
+const helium = require('./helium.js');
+const hydrogen = require('./hydrogen.js');
 
-let response = `HTTP/1.1 200 OK
-Content-Length: 200
-
-Welcome to the Matrix
-`;
+let response = '';
 
 // this creates a server
 const server = net
@@ -23,8 +18,14 @@ const server = net
       // do work here
       const endIndex = data.indexOf(' HTTP/1.1');
       let headRequest = data.substring(5, endIndex);
-      if (headRequest == '')
-
+      console.log(headRequest);
+      if (headRequest == 'helium.html') {
+        response = `
+HTTP/1.1 200 OK
+Content-Length: 635
+${helium.content}`;
+      }
+      console.log(response);
       // send response back here
       socket.end(response);
     });
