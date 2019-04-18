@@ -16,6 +16,6 @@ const heliumFile = {
     <p><a href="/">back</a></p>
   </body>
   </html>`,
-}
+};
 
 module.exports = heliumFile;
