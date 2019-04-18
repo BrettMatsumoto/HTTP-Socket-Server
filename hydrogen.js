@@ -1,4 +1,4 @@
-exports.hydrogenFile = {
+module.exports.hydrogenFile = {
   htmlHydrogen: `hydrogen.html`,
   content: `<!DOCTYPE html>
   <html lang="en">

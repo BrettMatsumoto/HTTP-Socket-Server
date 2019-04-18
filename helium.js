@@ -1,4 +1,4 @@
-exports.heilumFile = {
+module.exports.heilumFile = {
   htmlHelium: `helium.html`,
   content: `<!DOCTYPE html>
   <html lang="en">

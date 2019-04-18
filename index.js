@@ -1,4 +1,4 @@
-exports.indexHTMLFile = {
+module.exports.indexHTMLFile = {
   htmlIndex: `index.html`,
   content: `<!DOCTYPE html>
   <html lang="en">
