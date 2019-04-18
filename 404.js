@@ -1,4 +1,4 @@
-module.exports.file404 = {
+const file404 = {
   html404: `404.html`,
   content: `<!DOCTYPE html>
   <html lang="en">
@@ -16,3 +16,5 @@ module.exports.file404 = {
   </body>
   </html>`,
 }
+
+module.exports = file404;

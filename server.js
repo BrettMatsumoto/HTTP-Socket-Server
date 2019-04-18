@@ -20,19 +20,30 @@ const server = net
       let headRequest = data.substring(5, endIndex);
       console.log(headRequest);
       if (headRequest == 'helium.html') {
-        response = `
-HTTP/1.1 200 OK
+        response = `HTTP/1.1 200 OK
 Content-Length: ${helium.content.length}
+
 ${helium.content}`;
       } else if (headRequest == 'hydrogen.html') {
-        response = `
-HTTP/1.1 200 OK
+        response = `HTTP/1.1 200 OK
 Content-Length: ${hydrogen.content.length}
+
 ${hydrogen.content}`;
-      } 
+      } else if (headRequest == 'styles.html') {
+        response = `HTTP/1.1 200 OK
+Content-Length: ${styles.content.length}
+
+${styles.content}`;
+      } else if (headRequest == '404.html') {
+        response = `HTTP/1.1 200 OK
+Content-Length: ${send404.content.length}
+
+${send404.content}`;
+      }
 
       // send response back here
       socket.end(response);
+      console.log(response)
     });
   })
   // handle errors on the server
