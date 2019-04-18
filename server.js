@@ -22,10 +22,15 @@ const server = net
       if (headRequest == 'helium.html') {
         response = `
 HTTP/1.1 200 OK
-Content-Length: 635
+Content-Length: ${helium.content.length}
 ${helium.content}`;
-      }
-      console.log(response);
+      } else if (headRequest == 'hydrogen.html') {
+        response = `
+HTTP/1.1 200 OK
+Content-Length: ${hydrogen.content.length}
+${hydrogen.content}`;
+      } 
+
       // send response back here
       socket.end(response);
     });
