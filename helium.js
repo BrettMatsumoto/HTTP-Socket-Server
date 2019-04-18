@@ -1,4 +1,4 @@
-module.exports.heilumFile = {
+const heliumFile = {
   htmlHelium: `helium.html`,
   content: `<!DOCTYPE html>
   <html lang="en">
@@ -16,3 +16,5 @@ module.exports.heilumFile = {
   </body>
   </html>`,
 }
+
+module.exports.heliumFile = heliumFile;

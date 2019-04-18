@@ -5,7 +5,7 @@ const send404 = require('404.js');
 const styles = require('styles.js');
 const helium = require('helium.js');
 const hydrogen = require('hydrogen.js');
-console.log(send404)
+console.log(helium)
 
 let response = `HTTP/1.1 200 OK
 Content-Length: 200
