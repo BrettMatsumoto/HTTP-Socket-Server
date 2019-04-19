@@ -8,7 +8,6 @@ const hydrogen = require('./hydrogen.js');
 const index = require('./index.js');
 const getNow = new Date;
 const date = getNow.toUTCString()
-console.log(date)
 let response = '';
 
 // this creates a server
@@ -23,6 +22,7 @@ const server = net
       
       if (URI == '/helium.html') {
         response = `HTTP/1.1 200 OK
+Date: ${date}
 Content-Length: ${helium.content.length}
 
 ${helium.content}`;
@@ -38,7 +38,7 @@ Date: ${date}
 Content-Length: ${styles.content.length}
 
 ${styles.content}`;
-      } else if (URI == '') {
+      } else if (URI == '/404.html') {
         response = `HTTP/1.1 404 NOT FOUND
 Date: ${date}
 Content-Length: ${send404.content.length}
