@@ -6,8 +6,8 @@ const styles = require('./styles.js');
 const helium = require('./helium.js');
 const hydrogen = require('./hydrogen.js');
 const index = require('./index.js');
-const getNow = new Date;
-const date = getNow.toUTCString()
+const getNow = new Date();
+const date = getNow.toUTCString();
 let response = '';
 
 // this creates a server
@@ -19,7 +19,7 @@ const server = net
 
       // do work here
       let URI = data.slice(data.indexOf('/'), data.indexOf('HTTP') - 1);
-      
+
       if (URI == '/helium.html') {
         response = `HTTP/1.1 200 OK
 Date: ${date}
@@ -38,20 +38,19 @@ Date: ${date}
 Content-Length: ${styles.content.length}
 
 ${styles.content}`;
-      } else if (URI == '/404.html') {
-        response = `HTTP/1.1 404 NOT FOUND
-Date: ${date}
-Content-Length: ${send404.content.length}
-
-${send404.content}`;
       } else if (URI == '/index.html') {
         response = `HTTP/1.1 200 OK
 Date: ${date}
 Content-Length: ${index.content.length}
 
-${index.content}`
-      }
+${index.content}`;
+      } else {
+        response = `HTTP/1.1 404 NOT FOUND
+Date: ${date}
+Content-Length: ${send404.content.length}
 
+${send404.content}`;
+      }
       // send response back here
       socket.end(response);
     });
