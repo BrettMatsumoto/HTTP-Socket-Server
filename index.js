@@ -1,4 +1,4 @@
-module.exports.indexHTMLFile = {
+const indexHTMLFile = {
   htmlIndex: `index.html`,
   content: `<!DOCTYPE html>
   <html lang="en">
@@ -22,3 +22,5 @@ module.exports.indexHTMLFile = {
   </body>
   </html>`,
 }
+
+module.exports = indexHTMLFile;

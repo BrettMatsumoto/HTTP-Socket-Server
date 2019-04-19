@@ -5,6 +5,7 @@ const send404 = require('./404.js');
 const styles = require('./styles.js');
 const helium = require('./helium.js');
 const hydrogen = require('./hydrogen.js');
+const index = require('./index.js');
 
 let response = '';
 
@@ -39,6 +40,11 @@ ${styles.content}`;
 Content-Length: ${send404.content.length}
 
 ${send404.content}`;
+      } else if (headRequest = 'index.html') {
+        response = `HTTP/1.1 200 OK
+Content-Length: ${index.content.length}
+
+${index.content}`
       }
 
       // send response back here
