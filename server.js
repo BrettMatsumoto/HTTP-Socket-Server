@@ -45,11 +45,15 @@ ${send404.content}`;
 Content-Length: ${index.content.length}
 
 ${index.content}`
+      } else {
+        response = `HTTP/1.1 200 OK
+Content-Length: 18
+
+Welcome to nowhere`;
       }
 
       // send response back here
       socket.end(response);
-      console.log(response)
     });
   })
   // handle errors on the server
