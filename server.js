@@ -40,7 +40,7 @@ Content-Length: ${styles.content.length}
 
 ${styles.content}`;
       } else if (headRequest == '404.html') {
-        response = `HTTP/1.1 200 OK
+        response = `HTTP/1.1 404 NOT FOUND
 Date: ${date}
 Content-Length: ${send404.content.length}
 
