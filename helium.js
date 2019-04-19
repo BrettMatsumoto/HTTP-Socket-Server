@@ -1,3 +1,5 @@
+'use strict'
+
 const heliumFile = {
   htmlHelium: `helium.html`,
   content: `

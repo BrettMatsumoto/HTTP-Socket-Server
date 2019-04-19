@@ -1,3 +1,5 @@
+'use strict';
+
 const file404 = {
   html404: `404.html`,
   content: `<!DOCTYPE html>

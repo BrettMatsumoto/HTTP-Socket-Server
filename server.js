@@ -51,6 +51,7 @@ Content-Length: ${send404.content.length}
 
 ${send404.content}`;
       }
+      
       // send response back here
       socket.end(response);
     });

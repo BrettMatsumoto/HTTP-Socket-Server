@@ -1,3 +1,5 @@
+'use strict';
+
 const hydrogenFile = {
   htmlHydrogen: `hydrogen.html`,
   content: `

@@ -1,3 +1,5 @@
+'use string'
+
 module.exports = {
   cssStyles: `styles.css`,
   content: `@import url(http://fonts.googleapis.com/css?family=Open+Sans|Roboto+Slab);

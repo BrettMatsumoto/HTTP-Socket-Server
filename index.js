@@ -1,3 +1,5 @@
+'use strict'
+
 const indexHTMLFile = {
   htmlIndex: `index.html`,
   content: `<!DOCTYPE html>
