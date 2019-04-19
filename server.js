@@ -19,44 +19,37 @@ const server = net
       // this is the request
 
       // do work here
-      const endIndex = data.indexOf(' HTTP/1.1');
-      let headRequest = data.substring(5, endIndex);
-      console.log(headRequest);
-      if (headRequest == 'helium.html') {
+      let URI = data.slice(data.indexOf('/'), data.indexOf('HTTP') - 1);
+      
+      if (URI == '/helium.html') {
         response = `HTTP/1.1 200 OK
 Content-Length: ${helium.content.length}
 
 ${helium.content}`;
-      } else if (headRequest == 'hydrogen.html') {
+      } else if (URI == '/hydrogen.html') {
         response = `HTTP/1.1 200 OK
 Date: ${date}
 Content-Length: ${hydrogen.content.length}
 
 ${hydrogen.content}`;
-      } else if (headRequest == 'styles.html') {
+      } else if (URI == '/styles.html') {
         response = `HTTP/1.1 200 OK
 Date: ${date}
 Content-Length: ${styles.content.length}
 
 ${styles.content}`;
-      } else if (headRequest == '404.html') {
+      } else if (URI == '') {
         response = `HTTP/1.1 404 NOT FOUND
 Date: ${date}
 Content-Length: ${send404.content.length}
 
 ${send404.content}`;
-      } else if (headRequest = 'index.html') {
+      } else if (URI == '/index.html') {
         response = `HTTP/1.1 200 OK
 Date: ${date}
 Content-Length: ${index.content.length}
 
 ${index.content}`
-      } else {
-        response = `HTTP/1.1 200 OK
-Date: ${date}
-Content-Length: 18
-
-Welcome to nowhere`;
       }
 
       // send response back here
