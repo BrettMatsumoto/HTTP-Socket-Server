@@ -9,7 +9,7 @@ if (!processArgs[2]) {
   process.stdout.write(`
 
 No URI given
-********************************************************************
+**************************************************************************************
 To use this client, please input "node client.js ['insert URI Here']"
 Sample valid URI's:
 ********************   
@@ -55,10 +55,9 @@ if (!argument.includes('.com')) {
 } else {
   let URIdotComIndex = argument.indexOf('.com' || '.net' || '.org' || '.gov');
   let findHost = argument.substring(0, URIdotComIndex + 4);
-  let findURI = argument.substring(URIdotComIndex + 4, argument.length)
+  let findURI = argument.substring(URIdotComIndex + 4, argument.length);
   let port = 80;
-  let clientRequest = 
-`${method} /${findURI} HTTP/1.1 
+  let clientRequest = `${method} /${findURI} HTTP/1.1 
 Date: ${date}
 Host: ${findHost}
 Accept: text/html, application/json
@@ -69,17 +68,17 @@ Connection: Keep-Alive
 
   const client = net.createConnection(port, findHost);
 
-  client.on('connect', function(){
+  client.on('connect', function() {
     client.write(clientRequest);
-    console.log(clientRequest)
+    console.log(clientRequest);
     console.log('connected to the server');
   });
 
-  client.on('data', function(data){
+  client.on('data', function(data) {
     process.stdout.write(data);
     console.log(data);
-    client.end(function(){
-      console.log('leaving the server')
-    })
-  })
+    client.end(function() {
+      console.log('leaving the server');
+    });
+  });
 }
