@@ -10,7 +10,7 @@ if (!processArgs[2]) {
 
 No URI given
 ********************************************************************
-To use this client, please input "node client.js ['insert URI Here']
+To use this client, please input "node client.js ['insert URI Here']"
 Sample valid URI's:
 ********************   
 * index.html       *   *   *   ******   ******  *******  *   *  ******  ******  ******
