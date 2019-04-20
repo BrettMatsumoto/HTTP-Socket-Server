@@ -14,13 +14,15 @@ let response = '';
 const server = net
   .createServer((socket) => {
     socket.setEncoding('utf8');
+    // console.log('data',socket.data);  
     socket.on('data', (data) => {
       // this is the request
-
+      console.log(data);
       // do work here
       let URI = data.slice(data.indexOf('/'), data.indexOf('HTTP') - 1);
-
+      console.log(URI);
       if (URI == '/helium.html') {
+        console.log(data)
         response = `HTTP/1.1 200 OK
 Date: ${date}
 Content-Length: ${helium.content.length}
