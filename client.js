@@ -5,13 +5,17 @@ let processArgs = process.argv;
 let date = new Date();
 let method = 'GET';
 
+if (processArgs[3] == 'POST') {
+  method = 'POST'
+}
+
 if (!processArgs[2]) {
   process.stdout.write(`
 
 No URI given
 **************************************************************************************
 To use this client, please input "node client.js ['insert URI Here']"
-Sample valid URI's:
+
 ********************   
 * index.html       *   *   *   ******   ******  *******  *   *  ******  ******  ******
 * styles.html      *   *   *   *        *          *     *   *  *       *       *
@@ -19,6 +23,18 @@ Sample valid URI's:
 * www.espn.com     *   *   *        *   *          *     *   *  *            *  *
 * www.manoabbq.com *   *****   ******   ******     *     *   *  ******  ******  ******
 * hydrogen.html    *
+********************
+
+**************************************************************************************
+DO NOT USE THESE METHODS THEY WILL NOT WORK
+
+Sample invalid Methods's:
+********************   
+* POST             *   
+* PUT              *   
+* DELETE           *   
+* HEAD             *   
+* OPTIONS          *   
 ********************
 `);
   process.exit();
