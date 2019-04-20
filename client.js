@@ -6,39 +6,52 @@ let processArgs = process.argv;
 let date = new Date();
 let method = 'GET';
 
-console.log('processArgument index 3:', processArgs[2]);
+// console.log('processArgument index 2:', processArgs[2]);
 
 if (!processArgs[2]) {
   process.stdout.write('No URI'); //because processArgs[2] is the node command that the user is looking for so if there's no node command cannot search for anything, give them an error
   process.exit();
 }
 
-let argument = processArgs[1]; //get the string of where they want to search
-let endOfHostName = argument.indexOf('-Server'); //find the end of the host name
-let hostName = argument.substring(0, endOfHostName + 4); //from the start of the argument to the end of .com is the host name
-let findURI = argument.substring(endOfHostName + 4, argument.length); //from the end of .com to the end of the argument is the URI
+let findURI = processArgs[2];
+let hostName = 'localhost';
 
-if (argument.indexOf('Socket-Server') !== -1) { //if the user is searching the WWW.
-  argument = processArgs[2]; //get the string of where they want to search
-  let findDotCom = argument.indexOf('/'); //find the .com to start finding the URI
-  hostName = argument.substring(0, findDotCom + 4); //from the start of the argument to the end of .com is the host name
-  findURI = argument.substring(findDotCom + 4, argument.length); //from the end of .com to the end of the argument is the URI
-  port = 80;
-}
-
-let clientRequest = `HTTP/1.1 200 OK
+let clientRequest = `${method} /${findURI} HTTP/1.1 
 Date: ${date}
 Host: ${hostName}
-User-Agent: Custom Client`
+Accept: text/html, application/json
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
+Connection: Keep-Alive
+Content-Length: 11
 
-const client = net.createConnection(port,  function() {
-  client.write(processArgs);
-});
-client.on('data', () => {
-  client.end();
-});
-client.on('end', () => {
-  console.log('bye bruh come back later');
-});
+response: Hello World
+`;
+// console.log(clientRequest);
 
-console.log()
+const client = net.createConnection(port, hostName);
+
+client.on('connect', function(){
+  client.write(clientRequest)
+  console.log(clientRequest)
+
+  console.log('connected to the server');
+})
+client.on('data', function(data){
+  process.stdout.write(data)
+})
+// client.on('end', function(){
+//   console.log('Goodbye Mr.17')
+// })
+// const client = net.createConnection(port, () => {
+//   client.on('connect', function(){
+//     client.write(clientRequest);
+//   })
+// })
+// client.on('data', (data) => {
+
+//   process.stdout.write(data);
+//   console.log('mycomment',process.stdout);
+// });
+// client.on('end', () => {
+//   console.log('bye come back later');
+// });
