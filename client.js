@@ -18,6 +18,7 @@ Sample valid URI's:
 * helium.html      *   *   *   ******   ******     *     *****  ******  ******  ******
 * www.espn.com     *   *   *        *   *          *     *   *  *            *  *
 * www.manoabbq.com *   *****   ******   ******     *     *   *  ******  ******  ******
+* hydrogen.html    *
 ********************
 `);
   process.exit();
