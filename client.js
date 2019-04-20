@@ -7,16 +7,18 @@ let method = 'GET';
 
 if (!processArgs[2]) {
   process.stdout.write(`
+
 No URI given
 ********************************************************************
 To use this client, please input "node client.js ['insert URI Here']
 Sample valid URI's:
-        *****************
-        * index.html    *
-        * styles.html   *
-        * helium.html   *
-        * espn.com      *
-        *****************
+********************   
+* index.html       *   *   *   ******   ******  *******  *   *  ******  ******  ******
+* styles.html      *   *   *   *        *          *     *   *  *       *       *
+* helium.html      *   *   *   ******   ******     *     *****  ******  ******  ******
+* www.espn.com     *   *   *        *   *          *     *   *  *            *  *
+* www.manoabbq.com *   *****   ******   ******     *     *   *  ******  ******  ******
+********************
 `);
   process.exit();
 }
